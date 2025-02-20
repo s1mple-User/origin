@@ -5,9 +5,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 new_signle =Signal()
-@receiver(new_signle)
-def listen_new_signal(sender,**kwargs):
-    print(kwargs.get(sender,"mydata"))
+
 
 @receiver(new_signle)
 def pre_save_blog(sender,instance,**kwargs):
