@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+</head>
+<body>
+    
+    <h1>UPdate Profile</h1>
+
+    {{ profile_form.errors }}
+    {{ user_form.errors }}
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ profile_form.as_p }}
+        {{ user_form.as_p }}
+
+        <button>Update</button>
+
+    </form>
+
+
+
+</body>
+</html>

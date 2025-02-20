@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-02-13 19:47+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\blog\settings.py:159
+msgid "English"
+msgstr ""
+
+#: .\blog\settings.py:160
+msgid "Русский"
+msgstr ""
+
+#: .\blog\settings.py:161
+msgid "O'zbek"
+msgstr ""
+
+#: .\blogging\models.py:15 .\templates\new\blogs.html:70
+msgid "Category"
+msgstr ""
+
+#: .\blogging\models.py:51
+msgid "блог"
+msgstr ""
+
+#: .\blogging\models.py:52
+msgid "блоги"
+msgstr ""
+
+#: .\templates\new\about.html:12
+#, fuzzy
+#| msgid "About"
+msgid "AboutMe"
+msgstr "About"
+
+#: .\templates\new\about.html:14 .\templates\new\base.html:112
+msgid "About"
+msgstr "About"
+
+#: .\templates\new\about.html:35
+msgid "AboutCompanyTitle"
+msgstr "What is Lorem Ipsum?"
+
+#: .\templates\new\about.html:36
+msgid "AboutCompanyText1"
+msgstr "What is Lorem IpsumLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+#: .\templates\new\about.html:38
+msgid "AboutCompanyText2"
+msgstr "What is Lorem Ipsum?Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type  and scrambled it to make a type specimen book. It has survived not only five centuries, but also the   leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s    with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop     publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+
+#: .\templates\new\about.html:40
+msgid "AboutCompanyText3"
+msgstr "What is Lorem Ipsum?Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem psum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially  unchanged. It was popularised in the 1960s with the release of Letraset sheets containing   Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker   including versions of Lorem Ipsum."
+
+#: .\templates\new\base.html:93 .\templates\new\base.html:146
+msgid "Home"
+msgstr "Home"
+
+#: .\templates\new\base.html:94
+msgid "Blogs"
+msgstr "Blogs"
+
+#: .\templates\new\base.html:113
+msgid "Contact"
+msgstr "Contact"
+
+#: .\templates\new\blogs.html:80
+msgid "Subscribe"
+msgstr "Subscribe"
+
+#: .\templates\new\blogs.html:82
+msgid "subscribe_item__title"
+msgstr "Subscribe TITLE"
+
+#: .\templates\new\blogs.html:87
+msgid "agree-check"
+msgstr "What is Lorem Ipsum?"
+
+#: .\templates\new\blogs.html:91
+msgid "Subscribe2"
+msgstr "Subscribe"

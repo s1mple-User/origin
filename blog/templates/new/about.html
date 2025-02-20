@@ -1,0 +1,54 @@
+{% extends 'new/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- About Section Begin -->
+    <section class="about spad">
+        <div class="container">
+            <div class="about__text">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumb__text">
+                            <h2>{% trans "AboutMe" %}</h2>
+                            <div class="breadcrumb__option">
+                                <span>{% trans "About" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="about__pic__item__large">
+                            <img src="img/about/about-1.jpg" alt="">
+                        </div>
+                        <div class="about__pic">
+                            <div class="about__pic__item">
+                                <img src="img/about/about-2.jpg" alt="">
+                            </div>
+                            <div class="about__pic__item">
+                                <img src="img/about/about-3.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="about__right__text">
+                            <h2>{% trans "AboutCompanyTitle" %}</h2>
+                            <p>{% trans "AboutCompanyText1" %}</p>
+                            <ul>
+                                {% trans "AboutCompanyText2" %}
+                            </ul>
+                            <p>{% trans "AboutCompanyText3" %}</p>
+                            <div class="about__right__text__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Section End -->
+{% endblock %}

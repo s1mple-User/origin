@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>Blog Details</h1>
+
+        <div>
+            <img src="{{ blog.imageURL }}" alt>
+            <p>Author: {{ blog.author }} <span id="sbc" style="cursor: pointer;" onclick="subscribe({{ blog.author.id }})">subscribe</span></p>
+            <p>Title: {{ blog.title }}</p>
+            <p><strong style="cursor: pointer;" onclick="like({{ blog.id }})" >Likes:</strong><span id="like">{{ blog.likes.count }}</span></p>
+            <p><strong style="cursor: pointer;" onclick="dislike({{ blog.id }})" >Dislikes:</strong><span id="dislike">{{ blog.dislike.count }}</span></p>
+            <p>View: {{ blog.view }}</p>
+            <p>Description: {{ blog.description }}</p>
+        </div>
+
+        <h1>Leave a comment</h1>
+
+        <hr>
+
+        <div>
+            <p id="reply_box" style="display: none;">Reply text</p>
+        </div>
+        <form action="{% url 'create_comment' blog.id %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="reply" id="reply_input">
+            <input type="text" name="text">
+            <button>Create</button>
+        </form>
+
+        <h3>Comments</h3>
+
+        {% for comment in comments %}
+
+        <div>
+            <p>user: {{ comment.user }} <strong
+                    ondblclick="reply('{{ comment.text }}',{{ comment.id }})"
+                    style="cursor: pointer;">reply</strong></p>
+            <p>text: {{ comment.text }}</p>
+        </div>
+        <div>
+            <h4>replies</h4>
+            {% for reply in comment.replies.all %}
+            <div>
+                <p>user: {{ reply.user }} </p>
+                <p>text: {{ reply.text }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        <hr>
+
+        {% endfor %}
+
+    </body>
+
+    <script>
+
+        function reply(comment_text,comment_id){
+            console.log("rerere")
+            r = document.getElementById('reply_box')
+            document.getElementById("reply_input").value = comment_id
+            r.style.display = 'block'
+            r.innerHTML = comment_text
+        }
+
+        function like(blog_id){
+            url = `/like/${blog_id}/`
+            fetch(url).then((response)=>{
+                response.json().then((data) => {
+                    document.getElementById('like').innerHTML = data['like']
+                    document.getElementById('dislike').innerHTML = data['dislike']
+                })
+            })
+        }
+        
+        function dislike(blog_id){
+            url = `/dislike/${blog_id}/`
+            fetch(url).then((response)=>{
+                response.json().then((data) => {
+                    document.getElementById('like').innerHTML = data['like']
+                    document.getElementById('dislike').innerHTML = data['dislike']
+                })
+            })
+        }
+
+        function subscribe(author_id){
+            url = `/subscribe/${author_id}/`
+            fetch(url).then((response)=>{
+                response.json().then((data) => {
+                    document.getElementById('sbc').innerHTML = data['data']
+                })
+            })
+        }
+
+        
+
+    </script>
+
+</html>

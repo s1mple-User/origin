@@ -1,0 +1,149 @@
+{% extends 'new/base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <!-- Single Post Section Begin -->
+    <section class="single-post spad">
+        <div class="single-post__hero set-bg" data-setbg="{{ blog.imageURL }}"></div>
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="single-post__title">
+                        <div class="single-post__title__meta">
+                            <h2>{{ blog.update_time.day }}</h2>
+                            <span>{{ blog.update_time.month }}</span>
+                        </div>
+                        <div class="single-post__title__text">
+                            <ul class="label">
+                                <li>{{ blog.category }}</li>
+                            </ul>
+                            <h4>{{ blog.title }}</h4>
+                            <ul class="widget">
+                                <li>by {{ blog.author }}</li>
+                                <li>{{ blog.comment_count }} Comment</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="single-post__social__item">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="single-post__top__text">
+                        <p>{{ blog.description }}</p>
+                    </div>
+                    <div class="single-post__tags">
+                        <a href="#">Food</a>
+                        <a href="#">Vegan</a>
+                        <a href="#">Tomato</a>
+                        <a href="#">Weightloss</a>
+                    </div>
+                    <div class="single-post__next__previous">
+                        <div class="row">
+                            {% if previous %}
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <a href="{% url 'blog_details' previous.id %}" class="single-post__previous">
+                                    <h6><span class="arrow_carrot-left"></span> Previous posts</h6>
+                                    <div class="single-post__previous__meta">
+                                        <h4>{{ previous.update_time.day }}</h4>
+                                        <span>{{ previous.update_time.month }}</span>
+                                    </div>
+                                    <div class="single-post__previous__text">
+                                        <span>{{ previous.category }}</span>
+                                        <h5>{{ previous.title }}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endif %}
+                            {% if next %}
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <a href="{% url 'blog_details' next.id %}" class="single-post__next">
+                                    <h6>Next posts <span class="arrow_carrot-right"></span> </h6>
+                                    <div class="single-post__next__meta">
+                                        <h4>{{ next.update_time.day }}</h4>
+                                        <span>{{ next.update_time.month }}</span>
+                                    </div>
+                                    <div class="single-post__next__text">
+                                        <span>{{ next.category }}</span>
+                                        <h5>{{ next.title }}</h5>
+                                    </div>
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                    <div class="single-post__author__profile">
+                        <div class="single-post__author__profile__pic">
+                            <img src="{{ blog.author.imageURL }}" alt="">
+                        </div>
+                        <div class="single-post__author__profile__text">
+                            <h4>{{ blog.author }}</h4>
+                            <p>{{ blog.author.bio }}</p>
+                        </div>
+                    </div>
+                    <div class="single-post__comment">
+                        <div class="widget__title">
+                            <h4>{{ blog.comment_count }} Comment</h4>
+                        </div>
+                        {% for comment in comments %}
+                            <div class="single-post__comment__item">
+                                <div class="single-post__comment__item__pic">
+                                    <img src="{{ comment.user.imageURL }}" alt="">
+                                </div>
+                                <div class="single-post__comment__item__text">
+                                    <h5>{{ comment.user }}</h5>
+                                    <span>{{ comment.created_time }}</span>
+                                    <p>{{ comment.text }}</p>
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-share-square-o"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            {% for reply in comment.replies.all %}
+                                <div class="single-post__comment__item single-post__comment__item--reply">
+                                    <div class="single-post__comment__item__pic">
+                                        <img src="{{ reply.user.imageURL }}" alt="">
+                                    </div>
+                                    <div class="single-post__comment__item__text">
+                                        <h5>{{ reply.user }}</h5>
+                                        <span>{{ reply.created_time }}</span>
+                                        <p>{{ reply.text }}</p>
+                                        <ul>
+                                            <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                                            <li><a href="#"><i class="fa fa-share-square-o"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            {% endfor %}
+
+                        {% endfor %}
+
+
+
+                    </div>
+                    <div class="single-post__leave__comment">
+                        <div class="widget__title">
+                            <h4>Leave a comment</h4>
+                        </div>
+                        <form action="#">
+                            <div class="input-list">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Email">
+                                <input type="text" placeholder="Website">
+                            </div>
+                            <textarea placeholder="Message"></textarea>
+                            <button type="submit" class="site-btn">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Single Post Section End -->
+{% endblock %}
